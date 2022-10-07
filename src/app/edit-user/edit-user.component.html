@@ -1,0 +1,69 @@
+<div class="container">
+    <h1>Edit Food Product</h1>
+    <form #editData="ngForm" (ngSubmit)="editUser(editData)">
+      <span><b>User ID:</b></span>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="id"
+          id="id"
+          #id="ngModel"
+          [(ngModel)]="selectedUser.id"
+          [disabled]="true"
+        />
+      </div>
+      <span><b>Name:</b></span>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="name"
+          id="name"
+          #name="ngModel"
+          [(ngModel)]="selectedUser.name"
+          [disabled]="true"
+        />
+      </div>
+      <span><b>Email:</b></span>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="email"
+          id="email"
+          #email="ngModel"
+          [(ngModel)]="selectedUser.email"
+          [disabled]="true"
+        />
+      </div>
+      <span><b>Role:</b></span>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="role"
+          id="role"
+          #role="ngModel"
+          [(ngModel)]="selectedUser.role"
+        />
+      </div>
+      <span><b>Enter new password:</b></span>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          ngModel
+          name="password"
+          id="password"
+          #password="ngModel"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  

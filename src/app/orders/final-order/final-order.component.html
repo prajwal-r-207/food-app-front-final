@@ -1,0 +1,119 @@
+<!-- <section class="text-center" >
+    <div class="p-5 bg-image background"></div>
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+          margin-top: -90px;
+        background: hsla(0, 0%, 100%, 0.3);
+        backdrop-filter: blur(30px);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        ">
+      <div class="card-body py-5 px-md-5" >
+        <div class="row d-flex justify-content-center">
+          <div >
+            <h2 class="fw-bold mb-5 header">
+              Order Details
+            </h2>
+            <div class="inside-order" style="margin-top: -50px;text-transform: capitalize;" >
+              <table class="table table-borderless" >
+                <tbody>
+                  <tr *ngFor="let r of result">
+                  <tr>
+                    <th class="res1">ID</th>
+                    <th class="res">{{result.id}}</th>
+                  </tr>
+                  <tr>
+                    <td class="res1">Status</td>
+                    <td class="res">Order Completed</td>
+                  </tr>
+                  <tr>
+                    <td class="res1">Order Created Time</td>
+                    <td class="res">{{result.orderCreatetime}}</td>
+                  </tr>
+                  <tr>
+                    <td class="res1">Order Delivery Time</td>
+                    <td class="res">{{result.orderDeliverytime}}</td>
+                  </tr>
+                  <tr>
+                    <td class="res1">Customer Name</td>
+                    <td class="res">{{result.customerName}}</td>
+                  </tr>
+                  <tr>
+                    <td class="res1">Contact Number</td>
+                    <td class="res">{{result.contactNumber}}</td>
+                  </tr>
+                  <tr>
+                    <td class="res1">Items</td>
+                    <td class="res1">
+                      <div *ngFor="let  r of result.items"><h5 class="res">{{r.name}} -- {{r.quantity}}</h5></div>  
+                    </td>                 
+                  <tr>
+                    <td class="res1">Total Price</td>
+                    <td class="res">{{result.totalPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button routerLink="../cards" class="btn btn-primary bttn">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div id="invoice">
+                
+                <div class="invoice overflow-auto">
+                    <div style="min-width: 600px">
+                        <main>
+                            <div class="row contacts">
+                                <div class="col invoice-to">
+                                    <div class="text-gray-light">INVOICE TO:</div>
+                                    <h2 class="to">Customer Name: {{result.customerName}}</h2>
+                                    <h2 class="to">Contact Number: {{result.contactNumber}}</h2>
+                                </div>
+                                <div class="col invoice-details">
+                                    <h1 class="invoice-id">Order ID: {{result.id}}</h1>
+                                    <div class="date">Create Time &nbsp;&nbsp;&nbsp;&nbsp;: {{result.orderCreatetime}}</div>
+                                    <div class="date">Delivered Time: {{result.orderDeliverytime}}</div>
+                                </div>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th class="text-left">DESCRIPTION</th>
+                                        <th class="text-right">PRICE</th>
+                                        <th class="text-right">QUANTITY</th>
+                                        <th class="text-right">TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let r of result.items,let i=index">
+                                        <td class="no">{{i+1}}</td>
+                                        <td class="text-left">
+                                          {{r.name}}</td>
+                                        <td class="unit">Rs.{{r.price}}</td>
+                                        <td class="qty">{{r.quantity}}</td>
+                                        <td class="total">Rs.{{r.price*r.quantity}}</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td colspan="2">GRAND TOTAL</td>
+                                        <td>Rs.{{result.totalPrice}}</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </main>
+                        
+                    </div>
+                    <button routerLink="../cards" class="btn btn-primary bttn" style="margin-left: 600px;">Done</button>
+                    <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

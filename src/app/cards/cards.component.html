@@ -1,0 +1,49 @@
+<div class="text-center background" >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-5-strong" >
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" routerLink="../cards" class="fields" style="color:#fff;">Food Application</a>
+      </div>
+      <div class="pull-right">
+        <!-- Navbar brand -->
+        <a routerLink="/login" style="width: 500px;" class="fields" style="color:#fff;">{{result.name}},&nbsp;&nbsp;Logout</a>
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+
+    
+  </div>
+<div >
+    <div class="container" style="display: flex;justify-content: center;align-items: center;margin-top: 250px;">
+        <div class="row">
+            <div class="col-sm" *ngIf=isManager>
+                <a routerLink="../user-details"class="btn btn-outline-primary btn-lg btn-block text-center" style="font-size: 40px;">
+                    <br>
+                    <span><i class="fa fa-users" ></i></span>
+                    <br>Users
+                </a>
+            </div>
+            <div class="col-sm">
+                <a routerLink="../menu" class="btn btn-outline-primary btn-lg btn-block text-center"  style="font-size: 40px;">
+                    <br>
+                    <span><i class="fa fa-cutlery" ></i></span>
+                    <br>Menu
+                </a>
+            </div>
+            <div class="col-sm" *ngIf=!isManager>
+                <a routerLink="../get-orders" class="btn btn-outline-primary btn-lg btn-block text-center"  style="font-size: 40px;">
+                    <br>
+                    <span><i class="fa fa-list" ></i></span>
+                    <br>Orders
+                </a>
+            </div>
+            <div class="col-sm" *ngIf=!isManager>
+                <a routerLink="../add-order" class="btn btn-outline-primary btn-lg btn-block text-center"  style="font-size: 40px;">
+                    <span><i class="fa fa-plus"></i></span>
+                    <br>New Order
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

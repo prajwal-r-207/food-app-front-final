@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Login</h1>
+    <form #logData="ngForm" (ngSubmit)="logUser(logData)">
+        <div class="form-group">
+            <input 
+            type="text"
+            class="form-control"
+            ngModel
+            id="email"
+            name="email"
+            #email="ngModel"
+            (click)="reset()"
+            placeholder="Enter the User Email">
+            <span *ngIf="email.invalid && email.touched" style="color:red;">
+                Plese enter a valid email </span>
+        </div>
+        
+        <div class="form-group">
+            <input 
+            type="password"
+            class="form-control"
+            ngModel
+            id="password"
+            name="password"
+            #email="ngModel"
+            (click)="reset()"
+            placeholder="Enter the password">
+        </div>
+        <button type="btn" class="btn btn-primary" >Login</button>
+    </form>
+    <div class="log" *ngIf="error" style="color: red;">
+        Username or Password incorrect!
+       </div>
+</div>
+<div class="container" >
+    Are you a new user ?
+    <br>
+    <a routerLink="../register" >
+      Sign Up
+    </a>
+</div>

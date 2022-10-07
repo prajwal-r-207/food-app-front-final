@@ -1,0 +1,75 @@
+<section class="text-center">
+    <div class="p-5 bg-image background"></div>
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -100px;
+        background: hsla(0, 0%, 100%, 0.3);
+        backdrop-filter: blur(30px);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+      ">
+        <div style="text-transform: capitalize;" *ngIf="isLoading">
+            <h5 style="text-align: left;padding-left: 10px;padding-top: 10px;">Order Id&nbsp;:&nbsp; {{data.id}}</h5>
+            <h5 style="text-align: left;padding-left: 10px;">Customer Name&nbsp;:&nbsp; {{data.customerName}} </h5>
+            <h5 style="text-align: left;padding-left: 10px;">Customer Number : {{data.contactNumber}} </h5>
+        </div>
+        <div class="card-body py-10  px-md-5" style="text-transform: capitalize;" *ngIf="isLoading">
+
+            <div class="col d-flex justify-content-center">
+                <div class="col-lg-5"
+                    style="background-color: rgb(233, 231, 240); margin-right: 15px;border-radius: 7px;">
+                    <h3 class="fw-bold mb-5" style="padding-top: 10px;">Menu</h3>
+                    <hr style="margin-top: -40px ;" />
+                    <div class="inside-menu" style="text-transform: capitalize;">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Type</th>
+                                <tr *ngFor="let r of available">
+                                    <td>
+                                        <h5>{{ r.name }}</h5>
+                                    </td>
+                                    <td>{{ r.price }}/Rs.</td>
+                                    <td>{{ r.type }}</td>
+                                    <td><span><button (click)="items_list(r)" class="btn btn-primary" style="margin-right: 10px;">
+                                        Add Item
+                                    </button></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-5"
+                    style="background-color: rgb(233, 231, 240);border-radius: 7px;text-transform: capitalize;">
+                    <h3 class="fw-bold mb-5" style="padding-top: 10px;">Selected Items</h3>
+                    <hr style="margin-top: -40px ;" />
+                    <div id="itm" class="inside-menu">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr *ngFor="let r of map | keyvalue">
+                                            <td>
+                                                {{ r.key.name }}
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <button (click)="delete_items(r.key)" class="btn btn-primary btttn">
+                                                        -
+                                                    </button></span></td>
+                                                <td><h5 style="padding-top: 5px;">{{ r.value }}</h5></td>
+                                                <td><span>
+                                                    <button (click)="items_list(r.key)" class="btn btn-primary btttn">
+                                                        +
+                                                    </button></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="final_field" style="margin-left: 10px;">
+                    <h5 style=" padding: 2px;border-radius: 7px;">Total Price&nbsp;:&nbsp;Rs {{ total }}</h5>
+                    <button (click)="finalize()" class="btn btn btn-secondary">Finalize
+                        order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

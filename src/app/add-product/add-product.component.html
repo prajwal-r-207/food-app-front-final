@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>Add Food Product</h1>
+    <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+        <div class="form-group">
+            <input type="text" 
+            class="form-control"
+            name="name" 
+            id="name"
+            formControlName="name"
+            placeholder="Enter the Food Product Name">
+        </div>
+        <div class="form-group">
+            <input type="text" 
+            class="form-control"
+            name="about" 
+            id="about"
+            formControlName="about"
+            placeholder="Enter the Product Description">
+        </div>
+        <div class="form-group">
+            <input type="number" 
+            class="form-control"
+            name="price" 
+            id="price"
+            formControlName="price"
+            placeholder="Enter the Product Price">
+        </div>
+        <div class="form-group">
+            <input type="text" 
+            class="form-control"
+            name="type" 
+            id="type"
+            formControlName="type"
+            placeholder="Enter the product Type">
+        </div>
+        <div class="form-group">
+            <input type="text" 
+            class="form-control"
+            name="availability" 
+            id="availability"
+            formControlName="availability"
+            placeholder="Enter the product availability">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

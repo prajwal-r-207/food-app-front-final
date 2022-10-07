@@ -1,0 +1,80 @@
+<div class="container">
+  <h1>Edit Food Product</h1>
+  <form #editData="ngForm" (ngSubmit)="editProduct(editData)">
+    <span><b>Product ID:</b></span>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        ngModel
+        name="id"
+        id="id"
+        #id="ngModel"
+        [(ngModel)]="selectedProduct.id"
+        [disabled]="true"
+      />
+    </div>
+    <span><b>Product Name:</b></span>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        ngModel
+        name="name"
+        id="name"
+        #name="ngModel"
+        [(ngModel)]="selectedProduct.name"
+      />
+    </div>
+    <span><b>Product Type:</b></span>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        ngModel
+        name="type"
+        id="type"
+        #type="ngModel"
+        [(ngModel)]="selectedProduct.type"
+      />
+    </div>
+    <span><b>Product Description:</b></span>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        ngModel
+        name="about"
+        id="about"
+        #about="ngModel"
+        [(ngModel)]="selectedProduct.about"
+      />
+    </div>
+    <span><b>Availability:</b></span>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        ngModel
+        name="availability"
+        id="availability"
+        #availability="ngModel"
+        [(ngModel)]="selectedProduct.availability"
+      />
+    </div>
+    <span><b>Product Price:</b></span>
+    <div class="form-group">
+      <input
+        type="number"
+        class="form-control"
+        ngModel
+        name="price"
+        id="price"
+        #price="ngModel"
+        [(ngModel)]="selectedProduct.price"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
