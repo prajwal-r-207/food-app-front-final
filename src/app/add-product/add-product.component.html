@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <h1>Add Food Product</h1>
     <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
         <div class="form-group">
@@ -43,4 +43,47 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-</div>
+</div> -->
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">
+            <button mat-icon-button [routerLink]="['/menu']" style="padding-right: 20px; padding-bottom: 0px;">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            Add Product
+        </mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="add-product-form" [formGroup]="addProductForm"
+            (ngSubmit)="addProduct()">
+            <mat-form-field>
+                <mat-label>Product Name</mat-label>
+                <input matInput  name="name" id="name" formControlName="name" placeholder="Product Name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Product Type</mat-label>
+                <input matInput  name="type" id="type" formControlName="type" placeholder="Product Type">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Product Description</mat-label>
+                <input matInput name="about" id="about" formControlName="about" placeholder="Description">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Availability</mat-label>
+
+                <mat-select (selectionChange)="onChange($event)" name="availability" id="availability"
+                    formControlName="availability">
+                    <mat-option *ngFor="let availability of productAvailability" [value]="availability">{{availability}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Product Price</mat-label>
+                <input matInput name="price" id="price" formControlName="price" placeholder="Price">
+            </mat-form-field>
+            <button mat-raised-button type="submit" color="primary">Submit</button>
+        </form>
+    </mat-card>
+    <div>
+    </div>

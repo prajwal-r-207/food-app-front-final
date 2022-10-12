@@ -20,6 +20,7 @@ export class EditProductComponent implements OnInit {
   //   productAvailability:new FormControl,
   //   productPrice:new FormControl
   // });
+  productAvailability: any[] = ['yes', 'no'];
   constructor(private route:ActivatedRoute,private router: Router, private products:MenuService) { }
   
   ngOnInit(): void {
@@ -38,7 +39,11 @@ export class EditProductComponent implements OnInit {
       // this.editProductForm.setControl
     });
   }
+  onChange(event: any){
 
+    console.log(event.value);
+
+  }
   editProduct(form:NgForm){
     // console.log(form.value+this.selectedProduct.id);
     let foodProduct = form.value;

@@ -16,10 +16,18 @@ export class AddProductComponent implements OnInit {
     availability:new FormControl(''),
     price:new FormControl('')
   });
+  productAvailability: any[] = ['yes', 'no'];
   constructor(private products:MenuService, private route:ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  onChange(event: any){
+
+    console.log(event.value);
+
+  }
+
   addProduct(){
     console.log(this.addProductForm.value);
     let userID = localStorage.getItem('userID')

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <h1>Login</h1>
     <form #logData="ngForm" (ngSubmit)="logUser(logData)">
         <div class="form-group">
@@ -38,4 +38,31 @@
     <a routerLink="../register" >
       Sign Up
     </a>
+</div> -->
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Login Page</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" #logData="ngForm" (ngSubmit)="logUser(logData)">
+            <mat-form-field >
+                <mat-label >Email</mat-label>
+                <input matInput placeholder="Username" type="email" ngModel id="email" name="email" #email="ngModel"
+                    (click)="reset()">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password" ngModel id="password" name="password"
+                    #email="ngModel" (click)="reset()">
+            </mat-form-field>
+            <div class="log" *ngIf="error" style="color: red;">
+                Email or Password incorrect!
+               </div>
+            <button mat-raised-button type="submit" color="primary">Login</button>
+        </form>
+        <div class="reg-link">
+            Are you a new user ?
+            <button mat-button routerLink="../register" style="color: #3F51B5;">Sign Up</button>
+        </div>
+    </mat-card>
+    <div>
 </div>

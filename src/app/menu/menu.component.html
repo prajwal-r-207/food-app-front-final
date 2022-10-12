@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <h1>Menu</h1>
   <button id="add-btn" class="btn btn-primary" [routerLink]="['./add-product/']" *ngIf=isManager>
     <i id="add-icon" class="fa fa-plus" ></i>Add
@@ -46,5 +46,81 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</div> -->
+<div fxLayoutAlign="center end">
+  <div fxLayout="column" fxLayoutAlign="space-evenly start" fxFill fxFlex="80">
+    <mat-toolbar color="primary">
+      <button mat-icon-button [routerLink]="['../cards']" style="padding-right: 20px; padding-bottom: 0px;">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      Menu
+    </mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="space-evenly start">
+      <div>
+        <mat-form-field appearance="fill" autocomplete="off" (keyup)="filterData($event)" style="padding:0;">
+          <input matInput placeholder="Search">
+        </mat-form-field>
+      </div>
+      <div style="padding-left: 20px;padding-top: 12px;">
+        <button mat-raised-button [routerLink]="['./add-product/']" *ngIf=isManager>
+          <mat-icon>add</mat-icon>
+          Add Product
+         </button>
+      </div>
+       
+    </div>
+    <div class="mat-elevation-z8" div fxLayout="column" fxFill>
+      <div class="data-table">
+        <mat-table matSort [dataSource]="dataSource">
+
+          <ng-container matColumnDef="id">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> ID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> Type</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="about">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> Description </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.about}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="availability">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> Availability </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.availability}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="price">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let element">Rs.{{element.price}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="actions" *ngIf=isManager>
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef=" let row" style="justify-content: center;">
+              <button mat-icon-button [routerLink]="['./edit-product/', row.id]">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteProduct(row.id)">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+      <div class="paginator">
+        <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5,10,25,100]" aria-label="Select page">
+        </mat-paginator>
+      </div>
+    </div>
   </div>
 </div>

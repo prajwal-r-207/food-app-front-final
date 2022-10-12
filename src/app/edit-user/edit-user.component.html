@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <h1>Edit Food Product</h1>
     <form #editData="ngForm" (ngSubmit)="editUser(editData)">
       <span><b>User ID:</b></span>
@@ -65,5 +65,47 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+  </div> -->
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">
+      <button mat-icon-button [routerLink]="['/user-details']" style="padding-right: 20px; padding-bottom: 0px;">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      Edit User Details
+    </mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" class="edit-user-form" #editData="ngForm"
+      (ngSubmit)="editUser(editData)">
+      <mat-form-field>
+        <mat-label> User ID</mat-label>
+        <input matInput ngModel ngModel name="id" id="id" #id="ngModel" [(ngModel)]="selectedUser.id" [disabled]="true">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput ngModel name="name" id="name" #name="ngModel" [(ngModel)]="selectedUser.name" [disabled]="true">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput ngModel name="email" id="email" #email="ngModel" [(ngModel)]="selectedUser.email"
+          [disabled]="true">
+      </mat-form-field>
+
+      <mat-form-field>
+        <!-- <mat-label>Role</mat-label>
+                <input matInput placeholder="Username" ngModel name="role" id="role" #fullName="ngModel"> -->
+        <mat-label>Role</mat-label>
+        <mat-select (selectionChange)="onChange($event)" ngModel name="role" id="role" #fullName="ngModel">
+          <mat-option *ngFor="let role of roleList" [value]="role">{{role}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Password" ngModel id="password" name="password" #email="ngModel">
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary">Submit</button>
+    </form>
+  </mat-card>
+  <div>
   </div>
-  

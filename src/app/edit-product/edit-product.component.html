@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <h1>Edit Food Product</h1>
   <form #editData="ngForm" (ngSubmit)="editProduct(editData)">
     <span><b>Product ID:</b></span>
@@ -77,4 +77,76 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-</div>
+</div> -->
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">
+      <button mat-icon-button [routerLink]="['/menu']" style="padding-right: 20px; padding-bottom: 0px;">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      Edit Product Details
+    </mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" class="edit-product-form" #editData="ngForm"
+      (ngSubmit)="editProduct(editData)">
+      <mat-form-field>
+        <mat-label>Product ID</mat-label>
+        <input matInput ngModel ngModel
+        name="id"
+        id="id"
+        #id="ngModel"
+        [(ngModel)]="selectedProduct.id"
+        [disabled]="true">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Product Name</mat-label>
+        <input matInput ngModel ngModel
+        name="name"
+        id="name"
+        #name="ngModel"
+        [(ngModel)]="selectedProduct.name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Product Type</mat-label>
+        <input matInput ngModel ngModel
+        name="type"
+        id="type"
+        #type="ngModel"
+        [(ngModel)]="selectedProduct.type">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Product Description</mat-label>
+        <input matInput ngModel
+        name="about"
+        id="about"
+        #about="ngModel"
+        [(ngModel)]="selectedProduct.about">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Availability</mat-label>
+
+        <mat-select (selectionChange)="onChange($event)" name="availability"
+        id="availability"
+        #availability="ngModel"
+        [(ngModel)]="selectedProduct.availability">
+                    <mat-option *ngFor="let availability of productAvailability" [value]="availability">{{availability}}</mat-option>
+                </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Product Price</mat-label>
+        <input matInput ngModel
+        name="price"
+        id="price"
+        #price="ngModel"
+        [(ngModel)]="selectedProduct.price">
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary">Submit</button>
+    </form>
+  </mat-card>
+  <div>
+  </div>
+
+

@@ -1,3 +1,7 @@
-h1{
-    margin-top: 20px;
+.main-div mat-card{
+    padding: 0px;
+}
+.edit-product-form{
+    padding: 20px;
+    font-weight: bolder;
 }

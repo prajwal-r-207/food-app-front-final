@@ -19,7 +19,8 @@ import { GetOrdersComponent } from './orders/get-orders/get-orders.component';
 import { AddItemsComponent } from './orders/add-items/add-items.component';
 import { FinalOrderComponent } from './orders/final-order/final-order.component';
 import { CardsComponent } from './cards/cards.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { CardsComponent } from './cards/cards.component';
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

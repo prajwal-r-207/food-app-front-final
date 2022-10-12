@@ -10,6 +10,7 @@ import { UserService } from '../Services/user.service';
 })
 export class EditUserComponent implements OnInit {
   selectedUser:any;
+  roleList: any[] = ['Manager', 'Staff'];
   constructor(private users: UserService,private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
@@ -18,6 +19,11 @@ export class EditUserComponent implements OnInit {
       console.log(res);
       this.selectedUser=res;
     })
+  }
+  onChange(event: any){
+
+    console.log(event.value);
+
   }
   editUser(form: NgForm){
     let user= form.value;
